@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EVA – Coaching Esport from Data</title>
+
+    <!-- CSS -->
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body class="home-page">
+    <!-- The main section for the homepage -->
+    <header class="hero">
+      <video autoplay muted loop playsinline id="bg-video">
+        <source
+          src="{{ url_for('static', filename='videos/clip rl.mp4') }}"
+          type="video/mp4"
+        />
+      </video>
+      <div class="overlay"></div>
+      <div class="hero-content">
+        <h1>Coaching Players for Esport Games from Data</h1>
+        <h2>EVA</h2>
+      </div>
+    </header>
+
+    <!-- The navigation bar -->
+    <nav class="onglets">
+      <a href="{{ url_for('Index') }}">Home</a>
+      <a href="{{ url_for('eva') }}">EVA</a>
+      <a href="{{ url_for('datasets') }}">Datasets</a>
+      <a href="{{ url_for('projects') }}">The project</a>
+      <a href="{{ url_for('about') }}">About Me</a>
+
+      <!-- The menu -->
+      <div class="floating-menu" aria-label="Main menu">
+        <button class="menu-btn" title="Menu">
+          <img
+            src="{{ url_for('static', filename='images/SHINYLOGO.jpg') }}"
+            alt="Menu icon"
+          />
+        </button>
+        <div class="dropdown">
+          <a href="{{ url_for('Index') }}">🏠 Home</a>
+          <a href="{{ url_for('eva') }}">🤖 EVA</a>
+          <a href="{{ url_for('datasets') }}">📊 Datasets</a>
+          <a href="{{ url_for('projects') }}">🎮 The Project</a>
+          <a href="{{ url_for('about') }}">👤 About Me</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- The content for the homepage -->
+    <main class="content">
+      <section class="section-flex left fade-in">
+        <div class="section-text">
+          <h2>Introduction</h2>
+          <p>
+            Video games are becoming increasingly popular around the world,
+            attracting people of all ages and backgrounds. Yet, within this vast
+            industry, one particular category has started to rise to prominence:
+            competitive gaming, or esports. In major tournaments, players face
+            off in different games to determine the best of the best. However,
+            for many newcomers, whether they are already familiar with gaming or
+            complete beginners, the competitive scene can feel overwhelming,
+            leading some to give up early. Among the numerous titles that
+            dominate the esports landscape, Rocket League stands out as one of
+            the most dynamic and accessible. Combining the mechanics of football
+            with the physics of rocket-powered cars, the game has built a
+            massive international following. Its simple concept, yet incredibly
+            high skill ceiling, make it both easy to learn and difficult to
+            master an ideal formula for competitive play. With major
+            tournaments, professional leagues, and a passionate global
+            community, Rocket League has become a flagship example of how a game
+            can thrive in the esports world. Studying and developing tools
+            around it, therefore, provides valuable insights into performance
+            analysis, player development, and the broader dynamics of
+            competitive gaming.
+          </p>
+        </div>
+        <div class="section-image">
+          <img
+            src="{{ url_for('static', filename='images/RL.IMAGE.jpg') }}"
+            alt="Gaming data"
+          />
+        </div>
+      </section>
+
+      <section class="section-flex right fade-in">
+        <div class="section-text">
+          <h2>Objective</h2>
+          <p>
+            This project aims to address that challenge by creating a kind of
+            virtual coach. By analyzing gameplay and providing personalized
+            advice, this coach will help players gain a better understanding of
+            competitive gaming. It will offer them guidance on strategies,
+            mechanics, and overall performance, making the esports world more
+            accessible not only to experienced gamers but also to those who are
+            just beginning to explore it.
+          </p>
+        </div>
+        <div class="section-image">
+          <img
+            src="{{ url_for('static', filename='images/goal.jpg') }}"
+            alt="Objective"
+          />
+        </div>
+      </section>
+
+      <section class="section-flex left fade-in">
+        <div class="section-text">
+          <h2>The EVA Coach</h2>
+          <p>
+            EVA will help both newcomers and experienced players enhance their
+            performance in Rocket League. Powered by thousands of gameplay data
+            points, this AI-driven assistant analyzes individual playing styles
+            to deliver tailored feedback and actionable insights. Players can
+            provide their own replays or specific areas they wish to improve,
+            and EVA will respond with precise recommendations and ranging from
+            strategic positioning to mechanical execution. What makes EVA stand
+            out is its adaptability and accessibility. Unlike traditional
+            coaching, which often requires human availability and high costs,
+            EVA offers continuous, personalized guidance to anyone, anytime.
+          </p>
+        </div>
+        <div class="section-image">
+          <img
+            src="{{ url_for('static', filename='images/RLIMAGE.jpg') }}"
+            alt="EVA Coach"
+          />
+        </div>
+      </section>
+
+      <section class="section-flex right fade-in">
+        <div class="section-text">
+          <h2>Motivation</h2>
+          <p>
+            My motivation is to merge the rigor of data science with the
+            creativity and emotional depth of gaming. As someone passionate
+            about video games and the cultural worlds they create, I believe
+            that competitive gaming shouldn’t be limited to a small group of
+            experts. EVA was born from the idea that it can be a tool for
+            inclusion, a way to make the esports scene more accessible,
+            understandable, and empowering for everyone. By transforming complex
+            performance data into clear and personalized insights, EVA helps
+            players not only improve their gameplay, but also build confidence,
+            curiosity, and a deeper understanding of what makes esports so
+            fascinating. In the end, this project isn’t just about winning
+            matches, it’s about learning, growing, and sharing the joy of gaming
+            through the lens of data.
+          </p>
+        </div>
+        <div class="section-image">
+          <img
+            src="{{ url_for('static', filename='images/esport4.avif') }}"
+            alt="Motivation"
+          />
+        </div>
+      </section>
+    </main>
+
+    <!-- The footer -->
+    <footer class="footer">
+      <p>&copy; 2025 EVA — Touileb Yacine</p>
+    </footer>
+
+    <!-- Fade-in scroll that is in the js -->
+    <script src="{{ url_for('static', filename='js/scrollFade.js') }}"></script>
+  </body>
+</html>

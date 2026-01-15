@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Other Projects – EVA</title>
+
+    <!-- CSS -->
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="The project">
+    <!-- The main section for the project page -->
+    <header class="hero">
+      <video autoplay muted loop playsinline id="bg-video">
+        <source
+          src="{{ url_for('static', filename='videos/clip rl.mp4') }}"
+          type="video/mp4"
+        />
+      </video>
+      <div class="overlay"></div>
+      <div class="hero-content">
+        <h1>The Project</h1>
+      </div>
+    </header>
+
+    <!-- The navigation bar -->
+    <nav class="onglets">
+      <a href="{{ url_for('Index') }}">Home</a>
+      <a href="{{ url_for('eva') }}">EVA</a>
+      <a href="{{ url_for('datasets') }}">Datasets</a>
+      <a href="{{ url_for('projects') }}">The project</a>
+      <a href="{{ url_for('about') }}">About Me</a>
+
+      <!-- The menu -->
+      <div class="floating-menu" aria-label="Main menu">
+        <button class="menu-btn" title="Menu">
+          <img
+            src="{{ url_for('static', filename='images/SHINYLOGO.jpg') }}"
+            alt="Menu icon"
+          />
+        </button>
+        <div class="dropdown">
+          <a href="{{ url_for('Index') }}">🏠 Home</a>
+          <a href="{{ url_for('eva') }}">🤖 EVA</a>
+          <a href="{{ url_for('datasets') }}">📊 Datasets</a>
+          <a href="{{ url_for('projects') }}">🎮 The Project</a>
+          <a href="{{ url_for('about') }}">👤 About Me</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- The content for the project page -->
+    <main class="content">
+      <section class="section-flex middle fade-in">
+        <div class="section-text">
+          <h2>EVA — Esport Virtual Assistant (v1.0)</h2>
+          <p>
+            EVA is a Rocket League data coach built to help players understand
+            what happened in a match and what to focus on next. The goal is not
+            just to predict the outcome, but to explain the result in a way a
+            real coach would: highlighting the most impactful statistics,
+            comparing them with winning benchmarks, and translating them into
+            actionable advice.
+          </p>
+        </div>
+      </section>
+
+      <section class="section-flex middle fade-in">
+        <div class="section-text">
+          <h2>How EVA works (in simple terms)</h2>
+          <p>
+            EVA relies on match-level statistics collected from Ballchasing and
+            organized into a dataset. For any selected match, EVA:
+          </p>
+
+          <div
+            style="
+              margin-top: 18px;
+              display: grid;
+              grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+              gap: 14px;
+            "
+          >
+            <div
+              style="
+                background: rgba(255, 255, 255, 0.06);
+                border: 1px solid rgba(255, 255, 255, 0.12);
+                border-radius: 18px;
+                padding: 16px;
+                backdrop-filter: blur(6px);
+              "
+            >
+              <h3 style="margin: 0 0 8px 0">1) Reads your match</h3>
+              <p style="margin: 0; opacity: 0.9">
+                You enter a player name, select a match index, and EVA loads the
+                corresponding stats from the dataset.
+              </p>
+            </div>
+
+            <div
+              style="
+                background: rgba(255, 255, 255, 0.06);
+                border: 1px solid rgba(255, 255, 255, 0.12);
+                border-radius: 18px;
+                padding: 16px;
+                backdrop-filter: blur(6px);
+              "
+            >
+              <h3 style="margin: 0 0 8px 0">2) Explains the outcome</h3>
+              <p style="margin: 0; opacity: 0.9">
+                EVA uses model explanations (SHAP) to identify which statistics
+                pushed the prediction toward win or loss.
+              </p>
+            </div>
+
+            <div
+              style="
+                background: rgba(255, 255, 255, 0.06);
+                border: 1px solid rgba(255, 255, 255, 0.12);
+                border-radius: 18px;
+                padding: 16px;
+                backdrop-filter: blur(6px);
+              "
+            >
+              <h3 style="margin: 0 0 8px 0">3) Gives coaching advice</h3>
+              <p style="margin: 0; opacity: 0.9">
+                EVA returns your top 3 improvement targets and compares them
+                against the average of winning matches to show the gap.
+              </p>
+            </div>
+
+            <div
+              style="
+                background: rgba(255, 255, 255, 0.06);
+                border: 1px solid rgba(255, 255, 255, 0.12);
+                border-radius: 18px;
+                padding: 16px;
+                backdrop-filter: blur(6px);
+              "
+            >
+              <h3 style="margin: 0 0 8px 0">4) You can chat with EVA</h3>
+              <p style="margin: 0; opacity: 0.9">
+                After the analysis, you can ask questions and EVA answers like a
+                coach using your match report (no made-up stats).
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-flex middle fade-in">
+        <div class="section-text">
+          <h2>What “v1.0” means</h2>
+          <p>
+            This first version is a working: the pipeline is complete (data
+            → model → explanation → coaching → interface). The focus is on
+            clarity and usability: the coach must be understandable, fast to
+            use, and consistent across matches.
+          </p>
+          <p style="margin-top: 10px; opacity: 0.92">
+            Future versions will expand the dataset, refine coaching logic with
+            more context (e.g., game mode, rank, teammates, opponents), and add
+            more training recommendations such as map-specific drills and
+            targeted workshop packs.
+          </p>
+        </div>
+      </section>
+
+      <section class="section-flex middle fade-in">
+        <div class="section-text">
+          <h2>What’s next (planned improvements)</h2>
+          <p>Here are the next upgrades I want to ship as the project grows:</p>
+          <ul style="margin-top: 12px; line-height: 1.7; opacity: 0.95">
+            <li>
+              <b>More data</b> to improve reliability across playstyles and
+              ranks.
+            </li>
+            <li>
+              <b>Smarter coaching</b> with personalized baselines (your own
+              average vs winners average, role-based expectations).
+            </li>
+            <li>
+              <b>Training recommendations</b> (maps, drills, routines) linked to
+              the exact weakness detected by EVA.
+            </li>
+            <li>
+              <b>Better visual storytelling</b> with richer interactive plots
+              and player progression tracking.
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section-flex middle fade-in">
+        <div class="section-text">
+          <h2>Download notebooks</h2>
+          <p>
+            If you want to see how the project was built, you can download the
+            notebooks used for the MVP:
+          </p>
+
+          <div
+            style="
+              margin-top: 18px;
+              display: grid;
+              grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+              gap: 14px;
+            "
+          >
+            <a
+              class="btn-return"
+              href="{{ url_for('download_notebook', filename='Notebook pour l extraction des données (MVP).ipynb') }}"
+              style="
+                display: block;
+                text-decoration: none;
+                padding: 14px 16px;
+                border-radius: 18px;
+                background: rgba(255, 255, 255, 0.06);
+                border: 1px solid rgba(255, 255, 255, 0.14);
+                backdrop-filter: blur(6px);
+              "
+            >
+              <div style="font-weight: 700; margin-bottom: 6px">
+                Notebook pour l’extraction des données (MVP)
+              </div>
+              <div style="opacity: 0.9; font-size: 0.95rem">
+                Data collection + cleaning pipeline (Ballchasing → dataset).
+              </div>
+            </a>
+
+            <a
+              class="btn-return"
+              href="{{ url_for('download_notebook', filename='Notebook pour le developpement de EVA.ipynb') }}"
+              style="
+                display: block;
+                text-decoration: none;
+                padding: 14px 16px;
+                border-radius: 18px;
+                background: rgba(255, 255, 255, 0.06);
+                border: 1px solid rgba(255, 255, 255, 0.14);
+                backdrop-filter: blur(6px);
+              "
+            >
+              <div style="font-weight: 700; margin-bottom: 6px">
+                Notebook pour le développement de EVA
+              </div>
+              <div style="opacity: 0.9; font-size: 0.95rem">
+                Training + evaluation + SHAP + coaching logic experiments.
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+    <!-- The footer -->
+    <footer class="footer">
+      <p>© 2025 - Touileb Yacine | All rights reserved</p>
+    </footer>
+
+    <!-- Fade-in scroll that is in the js -->
+    <script src="{{ url_for('static', filename='js/scrollFade.js') }}"></script>
+  </body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Datasets – EVA</title>
+
+    <!-- CSS -->
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Section for plotly to have graphs -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  </head>
+
+  <body class="datasets-page">
+    <!-- The main section for the datasets page  -->
+    <header class="hero">
+      <video autoplay muted loop playsinline id="bg-video">
+        <source
+          src="{{ url_for('static', filename='videos/clip rl.mp4') }}"
+          type="video/mp4"
+        />
+      </video>
+      <div class="overlay"></div>
+      <div class="hero-content">
+        <h1>Datasets</h1>
+      </div>
+    </header>
+
+    <!-- The navigation bar -->
+    <nav class="onglets">
+      <a href="{{ url_for('Index') }}">Home</a>
+      <a href="{{ url_for('eva') }}">EVA</a>
+      <a href="{{ url_for('datasets') }}">Datasets</a>
+      <a href="{{ url_for('projects') }}">The project</a>
+      <a href="{{ url_for('about') }}">About Me</a>
+
+      <div class="floating-menu">
+        <button class="menu-btn">
+          <img src="{{ url_for('static', filename='images/SHINYLOGO.jpg') }}" />
+        </button>
+        <div class="dropdown">
+          <a href="{{ url_for('Index') }}">🏠 Home</a>
+          <a href="{{ url_for('eva') }}">🤖 EVA</a>
+          <a href="{{ url_for('datasets') }}">📊 Datasets</a>
+          <a href="{{ url_for('projects') }}">🎮 The Project</a>
+          <a href="{{ url_for('about') }}">👤 About Me</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- The content for the datasets page -->
+    <main class="content">
+      <section class="section-flex middle fade-in">
+        <div class="section-text">
+          <h2>Dataset Overview</h2>
+          <p>
+            This graphs are interactive visualizations built from real Rocket
+            League match data that I collected to train EVA. These plots help
+            explore performance, playstyle, patterns and help understand what
+            kind of data I am using. Those are some of the visualization that
+            can be done with the data that I have, when I will collect all of my
+            data, they might be more graphs and they might be more
+            representative. Don't hesitate to interact with the graphs and to
+            click on the buttons !
+          </p>
+        </div>
+      </section>
+
+      <!-- graph 1 -->
+      <section class="section-flex middle fade-in">
+        <div class="section-text">
+          <h2>Shooting Efficiency</h2>
+          <p>
+            This scatter plot explores the relationship between the number of
+            shots taken and goals scored per match. Each point represents a
+            match, allowing us to visually assess finishing efficiency.
+            Interactive filters allow comparison between all matches, wins, and
+            losses to better understand how shooting efficiency impacts match
+            outcomes.
+          </p>
+          <div id="plot1" style="width: 100%; height: 520px"></div>
+        </div>
+      </section>
+
+      <!-- graph 2 -->
+      <section class="section-flex middle fade-in">
+        <div class="section-text">
+          <h2>Boost Management</h2>
+          <p>
+            This bar chart summarizes how boost is managed across matches by
+            comparing collected, used, and stolen boost. Interactive controls
+            allow switching between total values and per-match averages, helping
+            identify whether boost usage reflects efficient resource management
+            or excessive consumption.
+          </p>
+          <div id="plot2" style="width: 100%; height: 520px"></div>
+        </div>
+      </section>
+
+      <!-- graph 3 -->
+      <section class="section-flex middle fade-in">
+        <div class="section-text">
+          <h2>What Drives Winning?</h2>
+          <p>
+            This comparative visualization highlights key performance metrics
+            such as goals, shots, saves, and demos by contrasting winning and
+            losing matches. By examining how these averages differ, the graph
+            reveals which aspects of gameplay are most strongly associated with
+            success, offering insights beyond simple scorelines.
+          </p>
+          <div id="plot3" style="width: 100%; height: 520px"></div>
+        </div>
+      </section>
+    </main>
+
+    <!-- The footer -->
+    <footer class="footer">
+      <p>© 2025 – Touileb Yacine | All rights reserved</p>
+    </footer>
+
+    <!-- Fade-in scroll and datasets functions that are in js files -->
+    <script src="{{ url_for('static', filename='js/scrollFade.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/datasets.js') }}"></script>
+  </body>
+</html>

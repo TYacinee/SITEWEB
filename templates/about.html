@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Me – EVA</title>
+
+    <!-- CSS -->
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="about-page">
+    <!-- HERO -->
+    <header class="hero">
+      <video autoplay muted loop playsinline id="bg-video">
+        <source
+          src="{{ url_for('static', filename='videos/clip rl.mp4') }}"
+          type="video/mp4"
+        />
+      </video>
+      <div class="overlay"></div>
+      <div class="hero-content">
+        <h1>About Me</h1>
+      </div>
+    </header>
+
+    <!-- NAVIGATION -->
+    <nav class="onglets">
+      <a href="{{ url_for('Index') }}">Home</a>
+      <a href="{{ url_for('eva') }}">EVA</a>
+      <a href="{{ url_for('datasets') }}">Datasets</a>
+      <a href="{{ url_for('projects') }}">The project</a>
+      <a href="{{ url_for('about') }}">About Me</a>
+
+      <div class="floating-menu" aria-label="Main menu">
+        <button class="menu-btn" title="Menu">
+          <img
+            src="{{ url_for('static', filename='images/SHINYLOGO.jpg') }}"
+            alt="Menu icon"
+          />
+        </button>
+        <div class="dropdown">
+          <a href="{{ url_for('Index') }}">🏠 Home</a>
+          <a href="{{ url_for('eva') }}">🤖 EVA</a>
+          <a href="{{ url_for('datasets') }}">📊 Datasets</a>
+          <a href="{{ url_for('projects') }}">🎮 The Project</a>
+          <a href="{{ url_for('about') }}">👤 About Me</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- CONTENT -->
+    <main class="content">
+      <!-- ABOUT -->
+      <section class="section-flex middle fade-in">
+        <div class="section-text">
+          <h2>Who I am</h2>
+          <p>
+            I am currently a student in the CPES program in
+            <b>Data Science, Arts and Culture</b> at
+            <b>Université Paris Sciences et Lettres (PSL)</b> and
+            <b>Lycée Louis-le-Grand</b>. My academic background combines
+            quantitative methods (statistics, machine learning, programming)
+            with humanities and cultural analysis.
+          </p>
+          <p style="margin-top: 10px">
+            I am particularly interested in the way data can be used not only to
+            predict or optimize, but also to <b>explain</b>, <b>interpret</b>,
+            and <b>mediate</b> complex cultural and social phenomena.
+          </p>
+        </div>
+      </section>
+
+      <!-- INTERESTS -->
+      <section class="section-flex middle fade-in">
+        <div class="section-text">
+          <h2>Interests & motivation</h2>
+          <p>
+            My main interests lie at the intersection of
+            <b>video games</b>, <b>music</b>, and <b>digital culture</b>. I am
+            especially drawn to projects that treat games not only as
+            entertainment, but as rich systems of data, strategies, and
+            behaviors.
+          </p>
+          <p style="margin-top: 10px">
+            Through projects like EVA, I aim to explore how machine learning and
+            data visualization can be transformed into tools of understanding,
+            learning, and critical reflection, rather than opaque black boxes.
+          </p>
+        </div>
+      </section>
+
+      <!-- EVA IN MY PATH -->
+      <section class="section-flex middle fade-in">
+        <div class="section-text">
+          <h2>EVA in my academic journey</h2>
+          <p>
+            EVA is more than a technical project: it represents my approach to
+            data science. Instead of focusing solely on performance, the project
+            emphasizes <b>interpretability</b>, <b>human-centered design</b>,
+            and <b>pedagogy</b>.
+          </p>
+          <p style="margin-top: 10px">
+            By combining predictive models, SHAP-based explanations, and a
+            conversational interface, EVA acts as a bridge between raw data and
+            meaningful coaching insights.
+          </p>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section class="section-flex middle fade-in">
+        <div class="section-text">
+          <h2>Contact</h2>
+          <p>
+            If you would like to discuss this project, my academic background,
+            or potential collaborations, feel free to reach out.
+          </p>
+
+          <div
+            style="
+              margin-top: 18px;
+              padding: 16px;
+              border-radius: 18px;
+              background: rgba(255, 255, 255, 0.06);
+              border: 1px solid rgba(255, 255, 255, 0.14);
+              backdrop-filter: blur(6px);
+              display: inline-block;
+            "
+          >
+            <p style="margin: 0; font-weight: 700">📧 Email</p>
+            <p style="margin: 6px 0 0 0; opacity: 0.95">
+              yacine.touileb@psl.eu
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <p>© 2025 - Touileb Yacine | All rights reserved</p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/scrollFade.js') }}"></script>
+  </body>
+</html>

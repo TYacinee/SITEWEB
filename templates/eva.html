@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Creating an Esport Coach – EVA</title>
+
+    <!-- CSS -->
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Markdown rendering -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dompurify@3.0.6/dist/purify.min.js"></script>
+  </head>
+
+  <body class="EVA">
+    <!-- The main section for the EVA page -->
+    <header class="hero">
+      <video autoplay muted loop playsinline id="bg-video">
+        <source
+          src="{{ url_for('static', filename='videos/clip rl.mp4') }}"
+          type="video/mp4"
+        />
+      </video>
+      <div class="overlay"></div>
+      <div class="hero-content">
+        <h1>EVA</h1>
+        <h2>Esport Virtual Assistant</h2>
+      </div>
+    </header>
+
+    <!-- the navigation bar -->
+    <nav class="onglets">
+      <a href="{{ url_for('Index') }}">Home</a>
+      <a href="{{ url_for('eva') }}">EVA</a>
+      <a href="{{ url_for('datasets') }}">Datasets</a>
+      <a href="{{ url_for('projects') }}">The project</a>
+      <a href="{{ url_for('about') }}">About Me</a>
+
+      <!-- The menu -->
+      <div class="floating-menu" aria-label="Main menu">
+        <button class="menu-btn" title="Menu">
+          <img
+            src="{{ url_for('static', filename='images/SHINYLOGO.jpg') }}"
+            alt="Menu icon"
+          />
+        </button>
+        <div class="dropdown">
+          <a href="{{ url_for('Index') }}">🏠 Home</a>
+          <a href="{{ url_for('eva') }}">🤖 EVA</a>
+          <a href="{{ url_for('datasets') }}">📊 Datasets</a>
+          <a href="{{ url_for('projects') }}">🎮 The Project</a>
+          <a href="{{ url_for('about') }}">👤 About Me</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- The content for the EVA page -->
+    <main class="content">
+      <!-- EVA APP -->
+      <section class="eva-wrap fade-in">
+        <div class="eva-header-card">
+          <div class="eva-badge">EVA • Coach Mode</div>
+          <h2 class="eva-title">
+            Analyze your match. Get actionable coaching.
+          </h2>
+          <p class="eva-subtitle">
+            Enter your <b>player name</b>, pick a match, and get a full coaching
+            report + visuals.
+          </p>
+        </div>
+
+        <div class="eva-grid">
+          <!-- LEFT: PLAYER + MATCHES -->
+          <div class="eva-panel card">
+            <h3 class="card-title">1) Identify Player</h3>
+            <p class="card-desc">
+              Type your Rocket League player name exactly as it appears in the
+              dataset.
+            </p>
+
+            <div class="eva-form">
+              <input
+                id="playerName"
+                class="eva-input"
+                type="text"
+                placeholder="e.g. Flowsen"
+                autocomplete="off"
+              />
+              <button id="btnFindMatches" class="eva-btn">Find matches</button>
+            </div>
+
+            <div id="matchesBox" class="matches-box">
+              <div class="hint">
+                Tip: after selecting a match, ask EVA why it happened and what
+                to train next.
+              </div>
+            </div>
+          </div>
+
+          <!-- RIGHT: REPORT + PLOTS -->
+          <div class="eva-panel card">
+            <h3 class="card-title">2) Match Report</h3>
+            <p class="card-desc">
+              EVA generates a report (prediction, SHAP, strengths, improvements)
+              + visuals.
+            </p>
+
+            <div id="reportBox" class="report-box">
+              <div class="empty-state">
+                <div class="empty-icon">⚡</div>
+                <div class="empty-text">
+                  Select a player, then choose a match to analyze.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- FULL WIDTH CHAT (below everything) -->
+        <div id="chatBox" class="card chat-card" style="display: none">
+          <div class="chat-top">
+            <div class="chat-title">3) Chat with EVA</div>
+            <div class="chat-chips">
+              <button class="chip" data-q="Why did I lose this match?">
+                Why did I lose?
+              </button>
+              <button class="chip" data-q="What should I focus on next games?">
+                What to focus next?
+              </button>
+              <button class="chip" data-q="Give me a training plan for 3 days.">
+                3-day training plan
+              </button>
+            </div>
+          </div>
+
+          <div id="chatLog" class="chat-log"></div>
+
+          <div class="chat-input-row">
+            <input
+              id="chatInput"
+              class="chat-input"
+              type="text"
+              placeholder="Ask EVA anything about this match..."
+            />
+            <button id="btnSendChat" class="eva-btn eva-btn-secondary">
+              Send
+            </button>
+          </div>
+
+          <div id="typing" class="typing" style="display: none">
+            EVA is typing<span class="dots">...</span>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- The footer -->
+    <footer class="footer">
+      <p>© 2025 - Touileb Yacine | All rights reserved</p>
+    </footer>
+
+    <!-- Fade-in scroll that is in the js -->
+    <script src="{{ url_for('static', filename='js/scrollFade.js') }}"></script>
+
+    <!-- EVA page logic -->
+    <script src="{{ url_for('static', filename='js/eva_page.js') }}"></script>
+  </body>
+</html>

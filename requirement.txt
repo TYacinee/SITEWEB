@@ -1,0 +1,13 @@
+Flask==3.0.0
+gunicorn==21.2.0
+
+pandas==2.2.0
+numpy==1.26.3
+
+scikit-learn==1.4.0
+tensorflow==2.15.0
+
+shap==0.44.0
+matplotlib==3.8.2
+
+openai==1.12.0
