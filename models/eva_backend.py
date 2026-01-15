@@ -27,7 +27,7 @@ class EVABackend:
 
     def __init__(
         self,
-        data_path="data/Final_Dataset_Mvp.csv",
+        data_path="data/Final_Dataset_MVP.csv",
         model_path="models/funnel_model.keras",
         scaler_path="models/scaler.pkl",
         features_path="models/feature_names.json",
